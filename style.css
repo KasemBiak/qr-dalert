@@ -1,0 +1,218 @@
+:root {
+    --bg-main: #0f172a;
+    --bg-card: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --primary: #dc2626;
+    --accent: #f59e0b;
+}
+
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.5;
+    padding-bottom: 3rem;
+}
+
+header {
+    background-color: var(--primary);
+    text-align: center;
+    padding: 1.5rem 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    border-bottom: 4px solid #7f1d1d;
+}
+header h1 { 
+    font-size: 1.75rem; 
+    font-weight: 900; 
+    letter-spacing: 0.05em; 
+}
+header p { 
+    font-size: 0.85rem; 
+    opacity: 0.9; 
+    margin-top: 0.25rem; 
+    font-weight: 500; 
+}
+
+main {
+    max-width: 480px;
+    margin: 1.5rem auto 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.card {
+    background-color: var(--bg-card);
+    padding: 1.25rem;
+    border-radius: 1rem;
+    border: 1px solid #334155;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+}
+.card h2 { 
+    font-size: 1.15rem; 
+    font-weight: 700; 
+    margin-bottom: 0.75rem; 
+    display: flex; 
+    align-items: center; 
+    gap: 0.5rem; 
+}
+.card-subtitle { 
+    font-size: 0.75rem; 
+    color: var(--text-muted); 
+    margin-bottom: 1rem; 
+    margin-top: -0.5rem; 
+}
+
+/* Navigasi Tab Kategori */
+.tab-container {
+    display: flex;
+    background-color: #0f172a;
+    padding: 0.25rem;
+    border-radius: 0.75rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid #334155;
+}
+.tab-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    padding: 0.6rem;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+}
+.tab-btn.active {
+    background-color: var(--accent);
+    color: #0f172a;
+}
+
+.guide-content { 
+    display: none; 
+}
+.guide-content.active { 
+    display: block; 
+}
+
+/* Pengaturan List & Gambar Ilustrasi */
+.step-list { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 1.25rem; 
+    list-style: none; 
+}
+.step-item { 
+    display: flex; 
+    gap: 0.75rem; 
+    font-size: 0.9rem; 
+    flex-direction: column; 
+}
+.step-header { 
+    display: flex; 
+    gap: 0.75rem; 
+    align-items: flex-start; 
+}
+.step-num {
+    background-color: #334155;
+    color: #f8fafc;
+    font-weight: 800;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.85rem;
+}
+.step-text strong { 
+    color: #fde047; 
+    font-weight: 600; 
+}
+
+.guide-content[id="anak"] .step-num { 
+    background-color: #0284c7; 
+}
+.guide-content[id="anak"] .step-text strong { 
+    color: #38bdf8; 
+}
+
+.infografis-img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.75rem;
+    margin-top: 0.5rem;
+    border: 2px solid #475569;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    background-color: #0f172a;
+}
+
+/* List Bullet untuk Faktor Pemicu */
+.bullet-list { 
+    list-style: none; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 0.75rem; 
+    font-size: 0.9rem; 
+    color: #cbd5e1; 
+}
+.bullet-list li::before { 
+    content: "•"; 
+    color: var(--accent); 
+    font-weight: bold; 
+    display: inline-block; 
+    width: 1em; 
+    margin-left: -0.25rem; 
+}
+
+/* Desain Struktur Kontak */
+.btn-list { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 0.75rem; 
+}
+.btn-phone {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #334155;
+    color: var(--text-main);
+    text-decoration: none;
+    padding: 0.85rem 1rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background 0.2s ease;
+}
+.btn-phone:hover { 
+    background-color: #475569; 
+}
+.btn-phone.danger { 
+    background-color: #451a03; 
+    border: 1px solid #9a3412; 
+    color: #f97316; 
+}
+.btn-phone.danger:hover { 
+    background-color: #7c2d12; 
+}
+.btn-action-text { 
+    font-size: 0.85rem; 
+    font-weight: 700; 
+    color: #f1f5f9; 
+    background: var(--primary); 
+    padding: 0.25rem 0.6rem; 
+    border-radius: 0.5rem; 
+}
+.btn-phone.danger .btn-action-text { 
+    background: #ea580c; 
+}
