@@ -4,73 +4,163 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR-DALERT: Mitigasi Telomoyo</title>
-    <script src="https://tailwindcss.com"></script>
-</head>
-<body class="bg-slate-900 text-slate-100 font-sans antialiased min-h-screen pb-12">
+    <style>
+        
+        :root {
+            --bg-main: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary: #dc2626;
+            --primary-hover: #b91c1c;
+            --accent: #f59e0b;
+            --accent-dim: #f59e0b20;
+        }
 
-    <header class="bg-red-700 text-white text-center py-6 px-4 shadow-lg border-b-4 border-red-900">
-        <h1 class="text-2xl font-black tracking-wide">QR-DALERT</h1>
-        <p class="text-sm font-medium mt-1 opacity-90">Sistem Peringatan Dini Digital Desa Pandean — Gunung Telomoyo</p>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            padding-bottom: 3rem;
+        }
+
+        header {
+            background-color: var(--primary);
+            text-align: center;
+            padding: 1.5rem 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
+            border-bottom: 4px solid #7f1d1d;
+        }
+        header h1 { font-size: 1.75rem; font-weight: 900; letter-spacing: 0.05em; }
+        header p { font-size: 0.85rem; opacity: 0.9; margin-top: 0.25rem; font-weight: 500; }
+
+        main {
+            max-width: 480px;
+            margin: 1.5rem auto 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            padding: 1.25rem;
+            border-radius: 1rem;
+            border: 1px solid #334155;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+        }
+        .card h2 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+        .card-subtitle { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 1rem; margin-top: -0.5rem; }
+
+        
+        .btn-list { display: flex; flex-direction: column; gap: 0.75rem; }
+        .btn-phone {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #334155;
+            color: var(--text-main);
+            text-decoration: none;
+            padding: 0.85rem 1rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background 0.2s ease;
+        }
+        .btn-phone:hover { background-color: #475569; }
+        .btn-phone.danger {
+            background-color: #451a03;
+            border: 1px solid #9a3412;
+            color: #f97316;
+        }
+        .btn-phone.danger:hover { background-color: #7c2d12; }
+        .btn-action-text { font-size: 0.85rem; font-weight: 700; color: #f1f5f9; background: var(--primary); padding: 0.25rem 0.6rem; border-radius: 0.5rem; }
+        .btn-phone.danger .btn-action-text { background: #ea580c; }
+
+        
+        .step-list { display: flex; flex-direction: column; gap: 1rem; list-style: none; }
+        .step-item { display: flex; gap: 0.75rem; font-size: 0.9rem; }
+        .step-num {
+            background-color: var(--accent);
+            color: #0f172a;
+            font-weight: 800;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 0.85rem;
+        }
+        .step-text strong { color: #fde047; font-weight: 600; }
+
+        .bullet-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.9rem; color: #cbd5e1; }
+        .bullet-list li::before { content: "•"; color: var(--accent); font-weight: bold; display: inline-block; width: 1em; margin-left: -0.25rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>QR-DALERT</h1>
+        <p>Sistem Informasi Mitigasi Longsor Desa Pandean — Telomoyo</p>
     </header>
 
-    <main class="max-w-md mx-auto px-4 mt-6 space-y-6">
-
-        <section class="bg-slate-800 p-5 rounded-2xl shadow-xl border border-slate-700">
-            <h2 class="text-lg font-bold text-red-400 mb-3 flex items-center gap-2">
-                Kontak Darurat Utama
-            </h2>
-            <p class="text-xs text-slate-400 mb-4">*Ketuk nomor di bawah ini untuk langsung menelepon</p>
-            
-            <div class="space-y-3">
-                <a href="tel:08123456789" class="flex justify-between items-center bg-slate-700 hover:bg-slate-600 p-3 rounded-xl transition font-medium">
-                    <span>Posko Siaga Pandean</span>
-                    <span class="text-red-400 text-sm font-bold">Hubungi ↗</span>
+    <main>
+        <section class="card">
+            <h2 style="color: #f87171;">Hubungi Kontak Darurat</h2>
+            <p class="card-subtitle">*Ketuk tombol untuk langsung melakukan panggilan darurat</p>
+            <div class="btn-list">
+                <a href="tel:08123456789" class="btn-phone">
+                    <span>Posko Bencana Pandean</span>
+                    <span class="btn-action-text">PANGGIL</span>
                 </a>
-                <a href="tel:08987654321" class="flex justify-between items-center bg-slate-700 hover:bg-slate-600 p-3 rounded-xl transition font-medium">
+                <a href="tel:08987654321" class="btn-phone">
                     <span>Pak Sekdes Purnomo</span>
-                    <span class="text-red-400 text-sm font-bold">Hubungi ↗</span>
+                    <span class="btn-action-text">PANGGIL</span>
                 </a>
-                <a href="tel:112" class="flex justify-between items-center bg-red-950/40 border border-red-800/50 p-3 rounded-xl transition font-medium">
+                <a href="tel:112" class="btn-phone danger">
                     <span>BPBD Kab. Magelang</span>
-                    <span class="text-red-500 text-sm font-bold">112 ↗</span>
+                    <span class="btn-action-text">112</span>
                 </a>
             </div>
         </section>
 
-        <section class="bg-slate-800 p-5 rounded-2xl shadow-xl border border-slate-700">
-            <h2 class="text-lg font-bold text-amber-400 mb-4 flex items-center gap-2">
-                Prosedur Evakuasi Longsor
-            </h2>
-            <ol class="space-y-4">
-                <li class="flex gap-3">
-                    <span class="bg-amber-500 text-slate-900 font-bold w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-sm">1</span>
-                    <p class="text-sm"><strong class="text-amber-300">Jangan Panik:</strong> Amankan barang bawaan utama yang paling krusial saja.</p>
+        <section class="card">
+            <h2 style="color: var(--accent);">Panduan Evakuasi Cepat</h2>
+            <ul class="step-list">
+                <li class="step-item">
+                    <span class="step-num">1</span>
+                    <div class="step-text"><strong>Jangan Panik:</strong> Amankan dokumen dan barang bawaan utama saja.</div>
                 </li>
-                <li class="flex gap-3">
-                    <span class="bg-amber-500 text-slate-900 font-bold w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-sm">2</span>
-                    <p class="text-sm"><strong class="text-amber-300">Jauhi Lereng:</strong> Segera berlari tegak lurus menjauh dari arah jalur runtuhan tanah.</p>
+                <li class="step-item">
+                    <span class="step-num">2</span>
+                    <div class="step-text"><strong>Jauhi Lereng:</strong> Berlari tegak lurus mengarah menjauh dari jalur runtuhan tanah.</div>
                 </li>
-                <li class="flex gap-3">
-                    <span class="bg-amber-500 text-slate-900 font-bold w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-sm">3</span>
-                    <p class="text-sm"><strong class="text-amber-300">Menuju Zona Aman:</strong> Ikuti papan petunjuk arah evakuasi menuju area datar di Desa Pandean.</p>
+                <li class="step-item">
+                    <span class="step-num">3</span>
+                    <div class="step-text"><strong>Zona Aman:</strong> Ikuti rambu evakuasi menuju area datar terbuka di Desa Pandean.</div>
                 </li>
-                <li class="flex gap-3">
-                    <span class="bg-amber-500 text-slate-900 font-bold w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-sm">4</span>
-                    <p class="text-sm"><strong class="text-amber-300">Lindungi Kepala:</strong> Gunakan tas, helm, atau kedua tangan dari potensi reruntuhan material.</p>
+                <li class="step-item">
+                    <span class="step-num">4</span>
+                    <div class="step-text"><strong>Lindungi Kepala:</strong> Gunakan tas, helm, atau lengan untuk melindungi diri dari material jatuh.</div>
                 </li>
-            </ol>
-        </section>
-
-        <section class="bg-slate-800 p-5 rounded-2xl shadow-xl border border-slate-700 text-sm">
-            <h2 class="text-lg font-bold text-slate-200 mb-3">Waspadai Tanda Awal</h2>
-            <ul class="list-disc list-inside space-y-2 text-slate-300">
-                <li>Muncul retakan baru di permukaan tanah atau jalan aspal.</li>
-                <li>Kerikil dan batu kecil mulai berjatuhan dari tebing.</li>
-                <li>Pohon atau tiang listrik di lereng terlihat miring.</li>
-                <li>Suara gemuruh bergemas dari arah puncak bukit.</li>
             </ul>
         </section>
 
+        <section class="card">
+            <h2 style="color: #e2e8f0;">Waspadai Tanda Awal Longsor</h2>
+            <ul class="bullet-list">
+                <li>Muncul rekahan baru pada tanah, jalan, atau fondasi bangunan.</li>
+                <li>Guguran kerikil dan batu kecil dalam volume konstan dari tebing.</li>
+                <li>Pohon, tiang listrik, atau pagar di area lereng mulai miring.</li>
+                <li>Suara bergemuruh dari atas bukit secara tiba-tiba.</li>
+            </ul>
+        </section>
     </main>
 
 </body>
