@@ -3,27 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR-MITIGASI TELOMOYO</title>
+    <title>🚨 QR-DALERT: Mitigasi Telomoyo</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <h1>QR-MITIGASI</h1>
+        <h1>🚨 QR-DALERT</h1>
         <p>Sistem Informasi Mitigasi Longsor Desa Pandean — Telomoyo</p>
     </header>
 
     <main>
         
+        <!-- ================= KARTU CUACA REAL-TIME ================= -->
+        <section class="card" id="weather-card">
+            <h2 style="color: #38bdf8; margin-bottom: 0.5rem;">🌤️ Status Cuaca Terkini (Telomoyo)</h2>
+            <p class="card-subtitle">*Diperbarui otomatis langsung dari satelit BMKG/Open-Meteo</p>
+            
+            <!-- Tempat JavaScript menginjeksikan data cuaca asli -->
+            <div id="weather-content" class="weather-container">
+                <div class="loading-text">Menghubungkan ke satelit cuaca lereng...</div>
+            </div>
+        </section>
+
+
+        <!-- SEKSYEN INFOGRAFIS BERGAMBAR -->
         <section class="card">
-            <h2>Panduan Visual Bencana</h2>
+            <h2>🗺️ Panduan Visual Bencana</h2>
             <p class="card-subtitle">*Ketuk pilihan di bawah untuk menyesuaikan panduan visual</p>
             
             <div class="tab-container">
-                <button class="tab-btn active" onclick="switchTab('umum')">DEWASA</button>
-                <button class="tab-btn" onclick="switchTab('anak')">ANAK-ANAK</button>
+                <button class="tab-btn active" onclick="switchTab('umum')">👨‍👩‍👦 UMUM / DEWASA</button>
+                <button class="tab-btn" onclick="switchTab('anak')">👶 ANAK-ANAK</button>
             </div>
 
+            <!-- Konten Panduan Umum -->
             <div id="umum" class="guide-content active">
                 <ul class="step-list">
                     <li class="step-item">
@@ -43,6 +57,7 @@
                 </ul>
             </div>
 
+            <!-- Konten Panduan Anak -->
             <div id="anak" class="guide-content">
                 <ul class="step-list">
                     <li class="step-item">
@@ -63,8 +78,9 @@
             </div>
         </section>
 
+        <!-- KARTU FAKTOR PEMICU LONGSOR -->
         <section class="card">
-            <h2 style="color: #60a5fa;">Faktor Pemicu Longsor</h2>
+            <h2 style="color: #60a5fa;">📘 Faktor Pemicu Longsor Telomoyo</h2>
             <p class="card-subtitle">*Edukasi penyebab ketidakstabilan lereng di area wisata Desa Pandean</p>
             <ul class="bullet-list">
                 <li>
@@ -88,7 +104,7 @@
 
 
         <section class="card">
-            <h2 style="color: #f87171;">Hubungi Kontak Darurat</h2>
+            <h2 style="color: #f87171;">📞 Hubungi Kontak Darurat</h2>
             <p class="card-subtitle">*Ketuk tombol untuk melakukan panggilan jika membutuhkan bantuan</p>
             <div class="btn-list">
                 <a href="tel:08123456789" class="btn-phone">
@@ -104,14 +120,7 @@
 
     </main>
 
-    <script>
-        function switchTab(tabId) {
-            document.querySelectorAll('.guide-content').forEach(content => content.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            
-            document.getElementById(tabId).classList.add('active');
-            event.currentTarget.classList.add('active');
-        }
-    </script>
+    <script src="script.js"></script>
+
 </body>
 </html>
